@@ -3,6 +3,7 @@
 require_relative "hexlet_code/version"
 require "cgi"
 
+# Генератор форм
 module HexletCode
   class Error < StandardError; end
   # Your code goes here...
