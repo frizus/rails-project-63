@@ -8,5 +8,16 @@ module HexletCode
   class Error < StandardError; end
   # Your code goes here...
 
-  autoload(:Tag, "#{__dir__}/hexlet_code/tag.rb")
+  def self.form_for(user, options = {})
+    options[:method] ||= "post"
+    if options[:url]
+      options[:action] = options[:url]
+      options.delete(:url)
+    end
+    options[:action] ||= "#"
+    options = options.sort.to_h
+    Tag.build("form", options)
+  end
+
+  autoload(:Tag, "hexlet_code/tag.rb")
 end

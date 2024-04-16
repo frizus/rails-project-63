@@ -16,6 +16,8 @@ module HexletCode
         html
       end
 
+      private
+
       def single_tag?(tag)
         instance_variable_get(:@single_tag).include? tag.downcase
       end
