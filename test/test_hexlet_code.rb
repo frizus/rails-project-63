@@ -35,28 +35,17 @@ class TestHexletCode < ActiveSupport::TestCase
       f.input :name
       f.input :job, as: :text
     end
-
-    expected = fixture("./fixtures/test_default.html")
-    assert_dom_equal(expected, result)
-
+    assert_dom_equal(fixture("fixtures/test_inputs/test_default.html"), result)
     result = HexletCode.form_for(user) do |f|
       f.input :name, class: "user-input"
       f.input :job, class: "different-user-input"
     end
-
-    expected = fixture("./fixtures/test_both_as_input_with_classes.html")
-    assert_dom_equal(expected, result)
-
+    assert_dom_equal(fixture("fixtures/test_inputs/test_both_as_input_with_classes.html"), result)
     result = HexletCode.form_for(user) do |f|
       f.input :job, as: :text, rows: 50, cols: 50
     end
-
-    expected = fixture("./fixtures/test_one_as_textarea.html")
-    assert_dom_equal(expected, result)
-
+    assert_dom_equal(fixture("fixtures/test_inputs/test_one_as_textarea.html"), result)
     result = HexletCode.form_for(user)
-
-    expected = fixture("./fixtures/test_no_inputs.html")
-    assert_dom_equal(expected, result)
+    assert_dom_equal(fixture("fixtures/test_inputs/test_no_inputs.html"), result)
   end
 end
