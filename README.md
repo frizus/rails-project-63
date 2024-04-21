@@ -23,7 +23,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ```ruby
 User = Struct.new(:name, :job, :gender, keyword_init: true)
-user = User.new name: 'rob', job: 'developer', gender: 'm'
+user = User.new name: 'rob', job: 'taster', gender: 'm'
 
 HexletCode.form_for user, url: "/users" do |f|
   f.input :name, class: "user-input"
@@ -37,8 +37,10 @@ end
 
 ```html
 <form action="/users" method="post">
+    <label for="name">Name</label>
     <input name="name" type="text" value="rob" class="user-input">
-    <textarea name="job" rows="50" cols="50">developer</textarea>
+    <label for="job">Job</label>
+    <textarea name="job" rows="50" cols="50">taster</textarea>
     <input type="submit" value="Wow">
     <input type="submit" value="Save">
 </form>
