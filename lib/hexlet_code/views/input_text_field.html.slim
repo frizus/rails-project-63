@@ -1,0 +1,7 @@
+ruby:
+    attributes = { "type" => "text", "name" => name, "value" => value.to_s }.symbolize_keys.merge(attributes.symbolize_keys)
+
+- unless no_label
+  label for="#{name}"
+    = (name.to_s.titleize)
+input *attributes
