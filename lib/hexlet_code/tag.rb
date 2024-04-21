@@ -8,7 +8,7 @@ module HexletCode
     class << self
       def build(tag, options = {})
         # https://stackoverflow.com/a/3831188
-        html = "<#{tag}#{options.reduce("") { |acc, (k, v)| acc + " #{k}=\"#{CGI.escapeHTML(v.to_s)}\"" }}>"
+        html = "<#{tag}#{options.reduce('') { |acc, (k, v)| acc + " #{k}=\"#{CGI.escapeHTML(v.to_s)}\"" }}>"
         unless single_tag?(tag)
           html += yield if block_given?
           html += "</#{tag}>"
@@ -18,10 +18,10 @@ module HexletCode
 
       def build_input(name = nil, value = nil, options = {})
         options[:name] = name unless name.nil?
-        options[:type] = "text"
+        options[:type] = 'text'
         options[:value] = value unless value.nil?
 
-        build("input", options)
+        build('input', options)
       end
 
       def build_textarea(name = nil, value = nil, options = {})
@@ -29,7 +29,7 @@ module HexletCode
         options[:cols] ||= 20
         options[:rows] ||= 40
 
-        build("textarea", options) { value }
+        build('textarea', options) { value }
       end
       alias build_text build_textarea
 

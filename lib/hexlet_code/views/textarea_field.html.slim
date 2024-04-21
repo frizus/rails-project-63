@@ -1,0 +1,8 @@
+ruby:
+    attributes = { "name" => name }.symbolize_keys.merge(attributes.symbolize_keys)
+
+- unless no_label
+  label for="#{name}"
+    = (name.to_s.titleize)
+textarea *attributes
+  = (value unless value.nil?)

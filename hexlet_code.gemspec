@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Генератор форм - задание главы 1"
   spec.homepage = "https://github.com/frizus/rails-project-63"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 3.2.2"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
@@ -32,4 +32,8 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "activesupport"
+  spec.add_dependency "rails-dom-testing"
+  spec.add_dependency "slim"
 end
